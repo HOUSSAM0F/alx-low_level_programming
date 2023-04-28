@@ -11,31 +11,28 @@
 */
 list_t *add_node_end(list_t **head, const char *str)
 {
-list_t *new;
-list_t *temp = *head;
-unsigned int len = 0;
+list_t *new; // declare a new node pointer
+list_t *temp = *head; // use a temporary pointer to traverse the list
+size_t len = strlen(str); // get the length of the string
 
-while (str[len])
-len++;
-
-new = malloc(sizeof(list_t));
-if (!new)
+new = malloc(sizeof(list_t)); // allocate memory for the new node
+if (new == NULL) // check if allocation failed
 return (NULL);
 
-new->str = strdup(str);
-new->len = len;
-new->next = NULL;
+new->str = strdup(str); // copy the string to the new node
+new->len = len; // assign the length to the new node
+new->next = NULL; // make the new node point to NULL
 
-if (*head == NULL)
+if (*head == NULL) // check if the list is empty
 {
-*head = new;
-return (new);
+*head = new; // make the new node the head of the list
+return (new); // return the new node
 }
 
-while (temp->next)
-temp = temp->next;
+while (temp->next != NULL) // loop until the last node
+temp = temp->next; // move to the next node
 
-temp->next = new;
+temp->next = new; // link the last node to the new node
 
-return (new);
+return (new); // return the new node
 }
