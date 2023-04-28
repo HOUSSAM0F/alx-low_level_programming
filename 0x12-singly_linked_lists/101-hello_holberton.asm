@@ -1,9 +1,9 @@
 global   main
-extern    printf
+extern   printf
 main:
-mov   edi, format
-xor   eax, eax
-call  printf
-mov   eax, 0
-ret
-format: db `Hello, Holberton\n`,0
+push  format ; push the address of the format string to the stack
+call  printf ; call the printf function
+add   esp, 4 ; adjust the stack pointer
+xor   eax, eax ; set eax to zero
+ret   ; return from the main function
+format: db `Hello, Holberton\n`,0 ; define the format string
