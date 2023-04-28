@@ -8,17 +8,15 @@
 
 size_t print_list(const list_t *h)
 {
-size_t nelem;
+size_t nelem = 0; // initialize nelem to 0
+const list_t *current = h; // use a pointer to traverse the list
 
-nelem = 0;
-while (h != NULL)
+while (current != NULL) // loop until the end of the list
 {
-if (h->str == NULL)
-printf("[%d] %s\n", 0, "(nil)");
-else
-printf("[%d] %s\n", h->len, h->str);
-h = h->next;
-nelem++;
+// use a ternary operator to print the string or "(nil)" if it is NULL
+printf("[%d] %s\n", current->str ? current->len : 0, current->str ? current->str : "(nil)");
+current = current->next; // move to the next node
+nelem++; // increment the element count
 }
-return (nelem);
+return (nelem); // return the number of elements
 }
