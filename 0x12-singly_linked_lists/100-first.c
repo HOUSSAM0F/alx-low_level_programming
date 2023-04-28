@@ -1,13 +1,11 @@
 #include <stdio.h>
 
-void first(void) __attribute__ ((constructor));
+void first(void); // declare the function prototype
 
-/**
-* first - prints a sentence before the main
-* function is executed
-*/
-void first(void)
+// use the constructor attribute to make the function run before main
+__attribute__ ((constructor)) void first(void)
 {
-printf("You're beat! and yet, you must allow,\n");
-printf("I bore my house upon my back!\n");
+// print the sentences using puts instead of printf
+puts("You're beat! and yet, you must allow,");
+puts("I bore my house upon my back!");
 }
