@@ -6,6 +6,7 @@
 *
 * Return: the number of nodes in the list
 */
+int main(void)
 {
 size_t print_listint(const listint_t *h)
 {
