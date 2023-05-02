@@ -6,12 +6,14 @@
 *
 * Return: the number of nodes in the list
 */
+{
 size_t print_listint(const listint_t *h)
 {
 size_t num_nodes = 0;
 
 listint_t *node = h;
-while (node != NULL) {
+while (node != NULL)
+{
 printf("%d\n", node->n);
 num_nodes++;
 node = node->next;
